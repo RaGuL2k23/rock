@@ -19,34 +19,52 @@ function playRound(playerSelection,computerSelection){// outputs to be returned
         return "tie";
     }
     else if ( playerSelection === 'rock' && computerSelection ==='paper'){
+       
+        ++lose;// replaced
         return 'you lose! paper beats rock'; 
-        ++lose;console.log('your score ',win ,'\n','computer score :',lose);
 
     }
     else if ( playerSelection === 'paper' && computerSelection ==='rock'){
-        return 'you win! paper beats rock';++win;console.log('your score ',win ,'\n','computer score :',lose);
+        ++win;// replaced
+        return 'you win! paper beats rock';
 
     }
     else if ( playerSelection === 'paper' && computerSelection === 'scissors'){
-        return ' you lose! scissors beat paper';++lose;console.log('your score ',win ,'\n','computer score :',lose);
+        ++lose;// replaced
+        return ' you lose! scissors beat paper';
     }
     else if ( playerSelection === 'scissors' && computerSelection === 'paper'){
-        return 'you win! scissors beat paper';++win;console.log('your score ',win ,'\n','computer score :',lose);
+        ++win;// replaced
+        return 'you win! scissors beat paper';
     }
     else if ( playerSelection === 'rock' && computerSelection === 'scissors'){
-        return 'you win! rock beat scissors';++win;console.log('your score ',win ,'\n','computer score :',lose);
+        ++win;// replaced
+        return 'you win! rock beat scissors';
     }
     else if ( playerSelection === 'scissors' && computerSelection === 'rock'){
-        return 'you lose! rock beat scissors';++lose;
-        console.log('your score ',win ,'\n','computer score :',lose);
+       ++lose;
+        // replaced
+        return 'you lose! rock beat scissors';
     }
     
 }
 function game(){         
-     playerSelection = prompt("choose your weapon,").toLowerCase();
+     for ( let i = 0 ; i < 5; i++){
+        playerSelection = 'paper'//prompt("choose your weapon,").toLowerCase();
      computerSelection = getComputerChoice();
      console.log(playRound(playerSelection,computerSelection));
-    
+     console.log(i+1,'round results','your score ',win ,'\n','computer score :',lose);
+     }
+     if ( win > lose){
+        return '\nYou win!';// not print anything or returned value not used 
+     }                                              // declares who win;
+     else if (win < lose){
+        return 'Computer wins\n';
+
+     }
+     else if ( win == lose){
+        return 'tie';
+     }
 
 
 }
